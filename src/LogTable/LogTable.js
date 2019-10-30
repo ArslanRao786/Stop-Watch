@@ -1,4 +1,8 @@
+//libs
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+//src
 import "./LogTable.css";
 
 class LogTable extends Component {
@@ -31,5 +35,9 @@ class LogTable extends Component {
     ));
   }
 }
+
+LogTable.propTypes = {
+  data: PropTypes.array.isRequired
+};
 
 export default LogTable;

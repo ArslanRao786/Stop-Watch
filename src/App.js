@@ -1,4 +1,7 @@
+//libs
 import React, { Component } from "react";
+
+//src
 import "./App.css";
 import Timer from "./Timer/Timer";
 import Actions from "./Actions/Actions";

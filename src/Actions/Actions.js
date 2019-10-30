@@ -1,4 +1,8 @@
+//libs
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+//src
 import "./Actions.css";
 import { EVENTS } from "../constants";
 
@@ -24,7 +28,7 @@ class Actions extends Component {
             Start
           </button>
           <button disabled>Split</button>
-          <button id="reset" onClick={this.props.handleReset}>
+          <button id="reset" onClick={handleReset}>
             Reset
           </button>
         </div>
@@ -57,5 +61,13 @@ class Actions extends Component {
     }
   }
 }
+
+Actions.propTypes = {
+  timerOn: PropTypes.bool.isRequired,
+  addLogEntry: PropTypes.func.isRequired,
+  handleStart: PropTypes.func.isRequired,
+  handleStop: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired
+};
 
 export default Actions;

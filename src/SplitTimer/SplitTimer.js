@@ -17,9 +17,7 @@ class SplitTimer extends Component {
 }
 
 SplitTimer.propTypes = {
-  timerOn: PropTypes.bool.isRequired,
-  time: PropTypes.number.isRequired,
-  setTime: PropTypes.func.isRequired
+  data: PropTypes.array.isRequired
 };
 
 export default SplitTimer;
