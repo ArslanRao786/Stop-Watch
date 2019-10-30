@@ -1,22 +1,17 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #09d3ac;
+.stopWatch {
+  background: rgb(153, 148, 148);
+  width: 50%;
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
