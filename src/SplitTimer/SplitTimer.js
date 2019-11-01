@@ -3,21 +3,22 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 //src
+import prettyPrintTime from "../Utils/Utils";
 import "./SplitTimer.css";
 
 class SplitTimer extends Component {
   render() {
-    const { data } = this.props;
-    return data.map(item => (
+    const { splitLog } = this.props;
+    return splitLog.map(item => (
       <div id="splitFormatter">
-        <td>{item.time}</td>
+        <td>{prettyPrintTime(item.time)}</td>
       </div>
     ));
   }
 }
 
 SplitTimer.propTypes = {
-  data: PropTypes.array.isRequired
+  splitLog: PropTypes.array.isRequired
 };
 
 export default SplitTimer;

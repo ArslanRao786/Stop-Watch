@@ -1,29 +1,6 @@
-#logSpacing {
-  tab-size: 30;
-  -moz-tab-size: 16;
-  -o-tab-size: 16;
-}
-
-#width {
-  width: 90%;
-}
-
-.size {
-  font-size: 25px;
-}
-
-#timeColorStart {
-  color: rgb(135, 232, 235);
-}
-#timeColorPause {
-  color: pink;
-}
-#timeColorSplit {
-  color: rgb(122, 83, 21);
-}
-
 .formatting {
   font-size: 25px;
   display: grid;
   grid-template-columns: 130px 500px 100px;
+  margin-bottom: 10px;
 }

@@ -1,7 +1,10 @@
 .buttons {
-  width: 80%;
+  width: 35%;
   display: flex;
   justify-content: flex-start;
+  padding: 15px;
+  border-bottom: black solid;
+  margin-bottom: 20px;
 }
 
 button {
@@ -10,22 +13,22 @@ button {
   border-radius: 50px;
 }
 
-#start:hover {
+.start:hover {
   cursor: pointer;
   background: rgb(135, 232, 235);
 }
 
-#stop:hover {
+.stop:hover {
   cursor: pointer;
   background: pink;
 }
 
-#reset:hover {
+.reset:hover {
   cursor: pointer;
   background: rgba(0, 119, 255, 0.787);
 }
 
-#split:hover {
+.split:hover {
   cursor: pointer;
   background: rgb(205, 146, 50);
 }

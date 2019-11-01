@@ -4,33 +4,30 @@ import PropTypes from "prop-types";
 
 //src
 import "./LogTable.css";
+import prettyPrintTime from "../Utils/Utils";
 
 class LogTable extends Component {
   render() {
     const { data } = this.props;
+    const timerColors = action => {
+      switch (action) {
+        case "Start":
+          return "rgb(135, 232, 235)";
+        case "Pause":
+          return "pink";
+        case "Split":
+          return "rgb(122, 83, 21)";
+        default:
+          return "white";
+      }
+    };
     return data.map((item, i) => (
-      <div id="width">
-        {item.action === "Start" && (
-          <div className="formatting" key={i}>
-            <td>#{i}</td>
-            <td id="timeColorStart">{item.time}</td>
-            <td>{item.action}</td>
-          </div>
-        )}
-        {item.action === "Pause" && (
-          <div className="formatting" key={i}>
-            <td>#{i}</td>
-            <td id="timeColorPause">{item.time}</td>
-            <td>{item.action}</td>
-          </div>
-        )}
-        {item.action === "Split" && (
-          <div className="formatting" key={i}>
-            <td>#{i}</td>
-            <td id="timeColorSplit">{item.time}</td>
-            <td>{item.action}</td>
-          </div>
-        )}
+      <div className="formatting" key={i}>
+        <td>#{i}</td>
+        <td style={{ color: timerColors(item.action) }}>
+          {prettyPrintTime(item.time)}
+        </td>
+        <td>{item.action}</td>
       </div>
     ));
   }

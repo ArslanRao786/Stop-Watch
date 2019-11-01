@@ -7,7 +7,6 @@ import Timer from "./Timer/Timer";
 import Actions from "./Actions/Actions";
 import LogTable from "./LogTable/LogTable";
 import SplitTimer from "./SplitTimer/SplitTimer";
-import { EVENTS } from "./constants";
 
 class App extends Component {
   constructor() {
@@ -15,17 +14,13 @@ class App extends Component {
     this.state = {
       timerOn: false,
       logs: [],
-      timerTime: 0
+      timerTime: 0,
+      splitTimer: []
     };
   }
 
   render() {
-    const { timerTime, logs, timerOn } = this.state;
-    let centiseconds = ("00" + (Math.floor(timerTime) % 1000)).slice(-3);
-    let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
-    let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
-    let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
-    let time = ` ${hours} : ${minutes} : ${seconds} : ${centiseconds}`;
+    const { timerTime, logs, timerOn, splitTimer } = this.state;
     return (
       <div className="container">
         <div className="stopWatch">
@@ -35,24 +30,34 @@ class App extends Component {
             setTime={newTime => this.setState(() => ({ timerTime: newTime }))}
           />
 
-          {
-            <SplitTimer
-              data={logs.filter(log => log.action === EVENTS.SPLIT)}
-            />
-          }
+          <SplitTimer splitLog={splitTimer} />
 
           <Actions
             timerOn={timerOn}
-            addLogEntry={actionType =>
-              this.setState({
-                logs: [...this.state.logs, { action: actionType, time: time }]
-              })
-            }
+            addLogEntry={actionType => {
+              if (actionType === "Split") {
+                this.setState({
+                  logs: [
+                    ...this.state.logs,
+                    { action: actionType, time: timerTime }
+                  ],
+                  splitTimer: [{ action: actionType, time: timerTime }]
+                });
+              } else {
+                this.setState({
+                  logs: [
+                    ...this.state.logs,
+                    { action: actionType, time: timerTime }
+                  ]
+                });
+              }
+            }}
             handleStart={() => this.setState({ timerOn: true })}
             handleStop={() => this.setState({ timerOn: false })}
-            handleReset={() => this.setState({ timerOn: false })}
+            handleReset={() =>
+              this.setState({ timerOn: false, splitTimer: [] })
+            }
           />
-          <p>____________________________________________</p>
 
           <LogTable data={logs} />
         </div>

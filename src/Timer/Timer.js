@@ -23,11 +23,13 @@ class Timer extends Component {
 
   startTimer = () => {
     const { setTime, time } = this.props;
+
     this.setState(() => {
       return { timerStart: Date.now() - time };
     });
     this.timer = setInterval(() => {
-      setTime(Date.now() - this.state.timerStart);
+      const { timerStart } = this.state;
+      setTime(Date.now() - timerStart);
     }, 1);
   };
 

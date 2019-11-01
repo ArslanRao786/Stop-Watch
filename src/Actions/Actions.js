@@ -19,7 +19,7 @@ class Actions extends Component {
       return (
         <div className="buttons">
           <button
-            id="start"
+            className="start"
             onClick={() => {
               handleStart();
               addLogEntry(EVENTS.START);
@@ -28,7 +28,7 @@ class Actions extends Component {
             Start
           </button>
           <button disabled>Split</button>
-          <button id="reset" onClick={handleReset}>
+          <button className="reset" onClick={handleReset}>
             Reset
           </button>
         </div>
@@ -37,7 +37,7 @@ class Actions extends Component {
       return (
         <div className="buttons">
           <button
-            id="stop"
+            className="stop"
             onClick={() => {
               handleStop();
               addLogEntry(EVENTS.PAUSE);
@@ -46,7 +46,7 @@ class Actions extends Component {
             Pause
           </button>
           <button
-            id="split"
+            className="split"
             onClick={() => {
               addLogEntry(EVENTS.SPLIT);
             }}
