@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+//src
+import prettyPrintTime from "../Utils/Utils";
+
 class Timer extends Component {
   constructor() {
     super();
@@ -48,16 +51,10 @@ class Timer extends Component {
   };
   render() {
     const { time } = this.props;
-    let centiseconds = ("00" + (Math.floor(time) % 1000)).slice(-3);
-    let seconds = ("0" + (Math.floor(time / 1000) % 60)).slice(-2);
-    let minutes = ("0" + (Math.floor(time / 60000) % 60)).slice(-2);
-    let hours = ("0" + Math.floor(time / 3600000)).slice(-2);
 
     return (
       <div>
-        <h1>
-          {hours} : {minutes} : {seconds} : {centiseconds}
-        </h1>
+        <h1>{prettyPrintTime(time)}</h1>
       </div>
     );
   }
